@@ -123,47 +123,39 @@
                           </li>
                       </ul>
                   </li>
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="#">Portfolio <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li>
-                              <a href="portfolio-3-col.html">Portfolio 3 column</a>
-                          </li>
-                          <li>
-                              <a href="portfolio-4-col.html">Portfolio 4 column</a>
-                          </li>
-                          <li>
-                              <a href="portfolio-single-image.html">Portfolio Single Image</a>
-                          </li>
-                          <li>
-                              <a href="portfolio-single-video.html">Portfolio Single Video</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="#">Blog <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li>
-                              <a href="blog.html">Blog</a>
-                          </li>
-                          <li>
-                              <a href="blog-two-col.html">Blog two column</a>
-                          </li>
-                          <li>
-                              <a href="blog-detail.html">Blog Single Image</a>
-                          </li>
-                          <li>
-                              <a href="blog-detail-video.html">Blog single video</a>
-                          </li>
-                      </ul>
-                  </li>
+
+                  <% if current_user %>
                   <li>
-                      <a href="contact.html">Contact</a>
+                    <%= link_to destroy_user_session_path, data: { close_others: false, delay: 0,
+                      hover: "dropdown"}, method: :delete do %>
+                      <i class="fa fa-sign-out"></i> Log Out
+                    <% end %>
                   </li>
+
+                  <li>
+                    <%= link_to edit_user_registration_path, data: { close_others: false, delay: 0,
+                      hover: "dropdown"} do %>
+                      <i class="fa fa-pencil"></i> Edit Profile
+                    <% end %>
+                  </li>
+
+                    <% else%>
+
+                  <li>
+                    <%= link_to new_user_session_path, data: { close_others: false, delay: 0,
+                      hover: "dropdown"} do %>
+                      <i class="fa fa-sign-in"></i> Sign In
+                    <% end %>
+                  </li>
+
+                  <li>
+                    <%= link_to new_user_registration_path, data: { close_others: false, delay: 0,
+                      hover: "dropdown"} do %>
+                      <i class="fa fa-user-plus"></i> Register
+                    <% end %>
+                  </li>
+                  <% end%>
+
                   <li><input class="form-control search" placeholder=" Search" type="text"></li>
               </ul>
           </div>
