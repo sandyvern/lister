@@ -9,25 +9,14 @@
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <!--<%#= link_to "Add A Restaurant", new_restaurant_path %>-->
+            <%= link_to "Add A Restaurant", new_restaurant_path %>
           </li>
         </ol>
       </div>
     </div>
   </div>
 </div>
-<div class="container">
-  <%= simple_form_for @restaurant do |form| %>
-    <%= form.input :name, autofocus: true %>
-    <%= form.input :description %>
-    <%= form.input :address1 %>
-    <%= form.input :address2 %>
-    <%= form.input :city %>
-    <%= form.input :state_provence %>
-    <%= form.input :postalcode %>
-    <%= form.input :phone %>
-    <%= form.input :email %>
 
-    <%= form.submit "Create Restaurant", class: "btn btn-warning" %>
-  <% end %>
+<%= render 'form' %>
+
 </div>
