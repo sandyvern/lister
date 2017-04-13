@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
   end
 
@@ -7,8 +9,15 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.create(restaurant_params)
-    redirect_to @restaurant
+    @user = current_user
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      redirect_to @restaurant
+      flash[:success] = "Great News! #{@user.username} your review has been saved."
+    else
+      flash[:error] = "Sorry #{@user.username}, see the errors below and re submit"
+      render :new
+    end
   end
 
   def show
