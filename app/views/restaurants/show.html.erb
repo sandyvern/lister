@@ -179,9 +179,38 @@
         </div>
       </div>
       <!-- end:article -->
-<!-- begin:sidebar -->
-      <!--<div class="col-md-3 col-md-pull-9 sidebar">-->
+
+      <!-- begin:sidebar -->
+      <div class="col-md-3 col-md-pull-9 sidebar">
 
         <!-- break -->
 
+        <div class="widget widget-sidebar widget-white">
+          <div class="widget-header">
+            <h3>
+              Restaurant Reviews
+            </h3>
+          </div>
+          <!-- break -->
+          <div class="widget widget-sidebar widget-white">
+            <% @reviews.each do |review| %>
+            <span class="star-rating" data-score=<%= review.rating %>></span><br />
+          <%= review.comment %>
+          <blockquote class="blockquote">
+            <p class="m-b-0">
+            </p>
+            <footer class="blockquote-footer pull-right">
+              <cite>
+                <%= review.user.username %>
+              </cite>
+            </footer>
+          </blockquote>
+          <hr>
+            <% end %>
+          </div>
+          <%= link_to "Create Review",
+          new_restaurant_review_path(@restaurant), class: "btn btn-info" %>
+        </div>
+        <!-- end:sidebar -->
 
+        </div>
