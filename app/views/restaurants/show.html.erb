@@ -56,16 +56,15 @@
                     </h2>
                     <p>
                       <% if @reviews.blank? %>
-                      This establishment has no reviews.  Be the first to share your dining experience!
+                        This establishment has no reviews. Be the first to share your dining experience!
                       <% else %>
-                      <%= @restaurant.name %> has an average rating of
-                      (
-                      <%= @average_rating %>) stars
-                      <span class="star-rating" data-score=<%= @average_rating %>></span>
-                      and has been reviewed by
-                    <%= @reviews.count %>
-                    <%= "client".pluralize@reviews.count %>
-                    <% end %>
+                        <strong><%= @restaurant.name %></strong> has an average rating of
+                        <strong>(<%= @average_rating %>)</strong> stars
+                        <span class="star-rating" data-score=<%= @average_rating %>></span>
+                        and has been reviewed by
+                        <%= @reviews.count %>
+                        <%= "client".pluralize@reviews.count %>
+                      <% end %>
                     <h3 class="text-muted">
                       Restaurant Overview
                     </h3>
