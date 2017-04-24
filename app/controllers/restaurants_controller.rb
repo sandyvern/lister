@@ -33,6 +33,10 @@ class RestaurantsController < ApplicationController
   def update
   end
 
+  def search
+    @restaurants = Restaurant.search(params)
+  end
+
   private
 
   def restaurant_params
