@@ -7,6 +7,8 @@ class Restaurant < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode
 
+   mount_uploader :image, ImageUploader
+
   def full_address
     [city, state_provence].join(', ')
   end
