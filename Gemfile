@@ -25,6 +25,7 @@ gem 'bootstrap-sass-extras', '~> 0.0.2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 gem 'geocoder', '~> 1.4', '>= 1.4.3'
 gem 'carrierwave', '~> 0.11.2'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 group :production do
   gem 'pg', '~> 0.18.4'
